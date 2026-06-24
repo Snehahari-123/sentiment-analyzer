@@ -1,0 +1,19 @@
+<h1>History</h1>
+
+<table border="1">
+<tr>
+    <th>Text</th>
+    <th>Sentiment</th>
+    <th>Date</th>
+</tr>
+
+{% for item in data %}
+<tr>
+    <td>{{ item.text }}</td>
+    <td>{{ item.sentiment }}</td>
+    <td>{{ item.created_at }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<a href="/">Home</a>

@@ -1,0 +1,14 @@
+<h1>Sentiment Analyzer</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <textarea name="text"></textarea><br>
+    <button type="submit">Analyze</button>
+</form>
+
+{% if result %}
+<h2>{{ result }}</h2>
+{% endif %}
+
+<a href="/history/">History</a> |
+<a href="/dashboard/">Dashboard</a>

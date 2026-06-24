@@ -1,0 +1,33 @@
+<h1>Dashboard</h1>
+
+<ul>
+{% for item in stats %}
+<li>{{ item.sentiment }} : {{ item.count }}</li>
+{% endfor %}
+</ul>
+
+<canvas id="chart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+let labels = [];
+let data = [];
+
+{% for item in stats %}
+labels.push("{{ item.sentiment }}");
+data.push({{ item.count }});
+{% endfor %}
+
+new Chart(document.getElementById("chart"), {
+    type: 'pie',
+    data: {
+        labels: labels,
+        datasets: [{
+            data: data
+        }]
+    }
+});
+</script>
+
+<a href="/">Home</a>
